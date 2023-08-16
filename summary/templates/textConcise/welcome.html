@@ -1,0 +1,25 @@
+{% extends 'textConcise/base.html' %}
+
+{% block css %}
+<style>
+    body{
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    }
+</style>   
+{% endblock %}
+
+{% comment %} main block {% endcomment %}
+{% block content %}
+
+
+<div class="container text-center mt-5">
+    <h1>Welcome to Our Website</h1>
+    <p class="lead text-light">Experience the Best of Our Services</p>
+    <div class="mt-4">
+        <a href="/login/" class="btn btn-primary btn-lg me-3">Login</a>
+        <a href="/register/" class="btn btn-outline-primary btn-lg">Register</a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'textConcise/base.html' %}
+
+{% block css %}
+<style>
+    body{
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    }
+</style>   
+{% endblock %}
+
+{% comment %} main block {% endcomment %}
+{% block content %}
+
+    <div class="container mt-4">
+        <form method='post'>
+            {% csrf_token %}
+        <div class="form-group">
+            <h3 for="exampleTextarea">Enter your text:</h3>
+            <textarea name="text_concise" class="form-control" id="exampleTextarea" rows="15"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    
+ 
+    
+    <div class="container mt-4">
+        <h2>Summary</h2>
+        <p>{{ summarized_paragraph|default_if_none:"No summary generated" }}</p>
+    </div>
+    
+{% endblock %}

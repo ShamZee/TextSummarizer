@@ -1,0 +1,68 @@
+{% extends 'textConcise/base.html' %}
+
+{% block css %}
+<style>
+    body{
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    }
+</style>   
+{% endblock %}
+
+{% comment %} main block {% endcomment %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Register</h4>
+                    {% if messages %}
+                    {% for message in messages %}
+                        <div class="text-dark alert alert-{{ message.tags }}  show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" class="form-control" id="firstname" name="first_name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" name="last_name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                      
+                        {% comment %} ----------- {% endcomment %}
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm_password" required>
+                        </div> 
+
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                    <p>I have have an account<a href="/login/"> Login </a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
